@@ -9,7 +9,7 @@ int[,] CreateMatrix(int rowCount, int columsCount)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rnd.Next(1, 11);
+            matrix[i, j] = rnd.Next(1, 10);
         }
     }
     return matrix;

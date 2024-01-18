@@ -27,7 +27,7 @@ int GetSumOfDigits(int value)
     return sum;
 }
 
-// Функция - Проверка элемента на интересность (четность)
+// Функция - Проверка элемента на "интересность" (четность)
 bool IsInteresting(int value)
 {
     int sumOfDigits = GetSumOfDigits(value);
@@ -52,13 +52,26 @@ void ShowMatrix(int[,] matrix)
     }
 }
 
-int[,] matrix = CreateMatrix(3, 4);
-ShowMatrix(matrix);
-
-foreach (int e in matrix)
+// Функция - Вывод "интересных" элементов массива или их отсутствие
+void ShowInterestingElements(int[,] matrix)
 {
-    if (IsInteresting(e) == true)
+    Console.Write("'Интересные' элементы массива: ");
+    int count = 0;
+    foreach (int e in matrix)
     {
-        Console.WriteLine(e);
+        if (IsInteresting(e) == true)
+        {
+            Console.Write(e + " ");
+            count++;
+        }
+    }
+
+    if (count == 0)
+    {
+        Console.Write("отсутствуют");
     }
 }
+
+int[,] matrix = CreateMatrix(4, 5);
+ShowMatrix(matrix);
+ShowInterestingElements(matrix);
