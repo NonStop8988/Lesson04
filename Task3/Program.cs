@@ -4,16 +4,22 @@
 string GetLettersFromString(string s)
 {
     string leters = "";
-    foreach(char e in s)
+    foreach (char e in s)
     {
         if (char.IsAsciiLetter(e) == true)
         {
             leters += e;
         }
     }
+    if (leters == "")
+    {
+        Console.WriteLine("В заданной строке английские буквы отсутствуют");
+    }
     return leters;
 }
 
-string str = Console.ReadLine();
+Console.Clear();
+Console.WriteLine("Напечатайте строку");
+string str = Console.ReadLine()!;
 string result = GetLettersFromString(str);
 Console.WriteLine(result);

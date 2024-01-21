@@ -4,12 +4,12 @@
 int[,] CreateMatrix(int rowCount, int columsCount)
 {
     int[,] matrix = new int[rowCount, columsCount];
-    Random rnd = new Random();
+    // Random rnd = new Random();
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rnd.Next(1, 1000);
+            matrix[i, j] = new Random().Next(1, 1000);
         }
     }
     return matrix;
@@ -31,11 +31,12 @@ int GetSumOfDigits(int value)
 bool IsInteresting(int value)
 {
     int sumOfDigits = GetSumOfDigits(value);
-    if (sumOfDigits % 2 == 0)
-    {
-        return true;
-    }
-    return false;
+    return sumOfDigits % 2 == 0;
+    // if (sumOfDigits % 2 == 0)
+    // {
+    //     return true;
+    // }
+    // return false;
 }
 
 // Функция - вывод двумерного массива на экран
@@ -46,7 +47,7 @@ void ShowMatrix(int[,] matrix)
         Console.Write($"Строка {i} - "); // Название каждой строки
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i, j]} ");
+            Console.Write($"{matrix[i, j]} "); // Вывод элементов строки массива
         }
         Console.WriteLine(); // Переход на новую строку
     }
@@ -65,7 +66,7 @@ void ShowInterestingElements(int[,] matrix)
             count++;
         }
     }
-
+    
     if (count == 0)
     {
         Console.Write("отсутствуют");
